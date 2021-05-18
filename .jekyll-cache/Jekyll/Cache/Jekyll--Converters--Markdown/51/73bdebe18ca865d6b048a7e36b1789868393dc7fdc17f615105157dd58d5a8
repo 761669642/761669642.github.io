@@ -1,13 +1,0 @@
-I"<p>一直想搭个博客记录一下自己的一些学习与总结，折腾了两天终于搭起来了，当然也遇到了不少的坑，主要是jekyll环境不太好配置，版本冲突和依赖关系等等，下面就总结一下搭建的过程，作为搭建成功后的第一篇博客试试水。</p>
-
-<h2 id="github-pages">Github Pages</h2>
-<p>github pages其实就是github的一个网站托管的功能，在自己的github账号上新建一个xxx.github.io的repository，然后将网站的相关代码和文件传上去，就可以在浏览器中通过https://xxx.github.io这个网址进行访问了。而一般我们都不会自己去写html网页，所以可以通过一些工具和模板进行自动构建，因此我们选择jekyll来进行网站的构建，有了模板之后，我们写博客时只需要专注于markdown文件的撰写，写完之后可以在本地用jelly将其依照模板构建成网页进行预览。而github pages也是支持jekyll自动构建的，我们只需要将jekyll模板以及markdown文件push到github仓库，github就会自动构建，然后发布。</p>
-
-<h2 id="jekyll环境搭建">jekyll环境搭建</h2>
-<p>在windows底下的jekyll环境安装还是有点复杂的，要依赖于ruby，而且后面你选择的主题可能也依赖于特定版本的软件包。我是参考了<a href="https://www.jianshu.com/p/9f71e260925d">这篇文章</a>搭建jekyll环境的，但是并没有一次成功，很多步骤我在这里还是重复一遍，尽量还原我自己的安装过程。</p>
-<ol>
-  <li>首先是安装<a href="https://rubyinstaller.org/downloads/">ruby</a>,因为看到其他教程有提到要安装Devkit，所以我选择的是Ruby+Devkit 2.7.3.1(x64)版本的，他会默认将ruby的可执行命令加到环境变量PATH里，安装后再<strong>新开</strong>一个cmd或者powershell，敲<code class="language-plaintext highlighter-rouge">ruby -v</code>验证是否装成功，如果不新开一个cmd有可能敲不出来。</li>
-  <li>下载<a href="https://rubygems.org/pages/download">RubyGems</a>,解压到自己选定的一个目录，打开cmd进入该目录，然后执行<code class="language-plaintext highlighter-rouge">ruby setup.rb</code>，我的理解就是在ruby环境下对rubygem进行编译，并安装到ruby的目录下，成功后，就能敲出<code class="language-plaintext highlighter-rouge">gem</code>命令，然后<code class="language-plaintext highlighter-rouge">gem install jekyll</code>安装jekyll。</li>
-  <li>选择合适的jekyll模板，我是看了B站博主<a href="https://www.bilibili.com/video/BV14x411t7ZU?t=1176">酒石酸菌</a>的教学，采用了<a href="https://github.com/leopardpan/leopardpan.github.io">潘柏信</a>的模板，跟着视频里一样删除了Rakefile, Gemfile以及Gemfile.lock这三个文件，然后执行jekyll server就可以在本地4000端口即http://127.0.0.1:4000访问到页面，但是当我push到github上之后却发现github总是构建失败。然后我又把这三个文件加回来了，但是在本地却</li>
-</ol>
-:ET
