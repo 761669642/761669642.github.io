@@ -1,0 +1,7 @@
+I"<h2 id="git的工作区暂存区和版本库的概念">git的工作区、暂存区和版本库的概念</h2>
+<p>关于这三个区域的概念其实网上以及讲的很多了，但是发现有些概念不同的人理解的不一样。
+<br />
+我自己的理解是如图所示
+<img src="/images/posts/git-guide/git_worktree_index.jpg" alt="" height="40%" width="40%" />
+工作区的内容就是工作目录中实际显示出来的文件，而暂存区的内容是工作区的内容的快照，暂存区对工作区的内容进行跟踪，而版本库的内容是对暂存区的一种保存，版本库对工作区进行跟踪。通过<code class="language-plaintext highlighter-rouge">git add</code>命令就能够将此时工作区的内容推送到暂存区，<code class="language-plaintext highlighter-rouge">git commit</code>命令则是将暂存区的内容推送到版本库。<br /></p>
+:ET

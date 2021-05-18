@@ -18,8 +18,9 @@ github pages其实就是github的一个网站托管的功能，在自己的githu
 4. 照着失败的log搜了一下，搜到了[这篇文章](https://www.5616760.com/jekyll/2020/10/10/Jekyll.html)，然后敲了下面几个命令，然后重新在本地构建成功，push到github上后也成功了，具体是哪个命令起了作用以及起了什么作用，我也搞不明白深层的原理，毕竟术业有专攻，不干前端，只是拿来用一下，就不纠结了。
    
 ```
-$ gem install bundler jekyll
+$ gem install bundler
 
 $ bundle update
 ```
+注意这两个命令必须要在gemfile所在的目录里敲，因为没有这个file他就不知道要update哪个版本，相当于是根据这个file的依赖版本进行更新的。而这个gemfile实际就存在于上面提到的jekyll模板中。<br/>
 然后后续我还换了个头像，push到github，却发现在github.io上却始终刷不出来，后来发现是浏览器自动把图像缓存了，要清除浏览器缓存才能刷出来。
