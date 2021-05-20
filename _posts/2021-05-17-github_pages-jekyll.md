@@ -12,9 +12,9 @@ github pages其实就是github的一个网站托管的功能，在自己的githu
 
 ## jekyll环境搭建
 在windows上的jekyll环境安装还是有点复杂的，要依赖于ruby，而且后面你选择的主题可能也依赖于特定版本的软件包。我是参考了[这篇文章](https://www.jianshu.com/p/9f71e260925d)搭建jekyll环境的，但是并没有一次成功，很多步骤我在这里还是重复一遍，尽量还原我自己的安装过程。
-1. 首先是安装[ruby](https://rubyinstaller.org/downloads/),因为看到其他教程有提到要安装Devkit，所以我选择的是Ruby+Devkit 2.7.3.1(x64)版本的，他会默认将ruby的可执行命令加到环境变量PATH里，安装后再**新开**一个cmd或者powershell，敲```ruby -v```验证是否装成功，如果不新开一个cmd有可能敲不出来，当时就是在旧的cmd上死活敲不出来，也为没装成功。
-2. 下载[RubyGems](https://rubygems.org/pages/download),解压到自己选定的一个目录，打开cmd进入该目录，然后执行```ruby setup.rb```，我的理解就是在ruby环境下对rubygem进行编译，并安装到ruby的目录下，成功后，就能敲出```gem```命令，然后```gem install jekyll```安装jekyll。
-3. 选择合适的jekyll模板，我是看了B站博主[酒石酸菌](https://www.bilibili.com/video/BV14x411t7ZU?t=1176)的教学，采用了[潘柏信](https://github.com/leopardpan/leopardpan.github.io)的模板，跟着视频里一样删除了Rakefile, Gemfile以及Gemfile.lock这三个文件，然后执行```jekyll server```在本地构建成功，就可以在本地4000端口即http://127.0.0.1:4000访问到页面，但是当我push到github上之后却发现github总是构建失败。然后我又把这三个文件加回来了，但是在本地却构建失败了。
+1. 首先是安装[ruby](https://rubyinstaller.org/downloads/),因为看到其他教程有提到要安装Devkit，所以我选择的是Ruby+Devkit 2.7.3.1(x64)版本的，安装过程中会默认将ruby的可执行命令加到环境变量PATH里，安装完成后再**新开**一个cmd或者powershell，敲`ruby -v`验证是否装成功，如果不新开一个cmd有可能敲不出来，当时就是在旧的cmd上死活敲不出来，也为没装成功。
+2. 下载[RubyGems](https://rubygems.org/pages/download),解压到自己选定的一个目录，打开cmd进入该目录，然后执行`ruby setup.rb`，我的理解就是在ruby环境下对rubygem进行编译，并安装到ruby的目录下，成功后，就能敲出`gem`命令，然后`gem install jekyll`安装jekyll。
+3. 选择合适的jekyll模板，我是看了B站博主[酒石酸菌](https://www.bilibili.com/video/BV14x411t7ZU?t=1176)的教学，采用了[潘柏信](https://github.com/leopardpan/leopardpan.github.io)的模板，跟着视频里一样删除了Rakefile, Gemfile以及Gemfile.lock这三个文件，然后执行`jekyll server`在本地构建成功，就可以在本地4000端口即http://127.0.0.1:4000访问到页面，但是当我push到github上之后却发现github总是构建失败。然后我又把这三个文件加回来了，但是在本地却构建失败了。
 4. 照着失败的log搜了一下，搜到了[这篇文章](https://www.5616760.com/jekyll/2020/10/10/Jekyll.html)，然后敲了下面几个命令，然后重新在本地构建成功，push到github上后也成功了，具体是哪个命令起了作用以及起了什么作用，我也搞不明白深层的原理，毕竟术业有专攻，不干前端，只是拿来用一下，就不纠结了。
    
 ```

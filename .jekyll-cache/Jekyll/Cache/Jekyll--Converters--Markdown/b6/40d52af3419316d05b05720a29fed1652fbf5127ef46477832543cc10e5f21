@@ -1,11 +1,0 @@
-I"<h2 id="git的工作区暂存区和版本库的概念">git的工作区、暂存区和版本库的概念</h2>
-<p>关于这三个区域的概念其实网上以及讲的很多了，但是发现有些概念不同的人理解的不一样。
-<br />
-我自己的理解是如图所示
-<img src="/images/posts/git-guide/git_worktree_index.jpg" alt="" height="40%" width="40%" />
-工作区的内容就是工作目录中实际显示出来的文件，而暂存区的内容是工作区的内容的快照，暂存区对工作区的内容进行跟踪，而版本库的内容是对暂存区的一种保存，版本库对工作区进行跟踪。通过<code class="language-plaintext highlighter-rouge">git add</code>命令就能够将此时工作区的内容推送到暂存区，<code class="language-plaintext highlighter-rouge">git commit</code>命令则是将暂存区的内容推送到版本库。<br /></p>
-
-<p><img src="/images/posts/git-guide/git_status.jpg" alt="" />
-如图所示，通过<code class="language-plaintext highlighter-rouge">git status</code>命令可以看到绿色字体以及红色字体的两类不同的文件，绿色字体的”modifiled: file1”对应着上图中file1暂存区和版本库的差异(绿色箭头)，而红色字体包含多种情况，上图中file1工作区和版本库的差异(红色箭头)对应着红色字体的”modified: file1”，而file2是在工作区创建了文件，却没有add和commit，于是暂存区和版本库就没有对该文件的追踪，对应着图中”Untracked files: file2”，file3是在add并commit之后删除了工作区的file3文件，对应着图中“deleted: file3”。总之，工作区与暂存区的差异总是红色字体表示，而暂存区与版本库的差异总是绿色字体，具体是属于modified，deleted，还是untracked files类型，则是由产生差异的原因决定。例如modified就是由于文件更改而产生的差异。<br />
-我始终认为，工作区的内容就是工作目录中看到的内容，暂存区的内容就是工作区推送过来的全部内容。但是网上有些博客的理解似乎是将暂存区和版本库的差异(git status出现的绿字内容)当成了暂存区的内容。尤其是<a href="https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576">廖雪峰</a>的网站对于git的暂存区的讲解，说commit之后暂存区就空了，我是非常不认可的，因为如果接受了这样的设定，后面理解git checkout – file，git restore，git reset等命令就会很不直观，在很多教程中就会出现类似“将reset带来的差异放入暂存区”之类的话，其实本质就是将版本库的文件整个回退到暂存区，却由于将暂存区错误理解成暂存区与版本库之间的差异，而将原本简单的概念理解复杂了。</p>
-:ET
